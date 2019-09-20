@@ -27,7 +27,7 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ]  Explain benefit(s) using `client-side routing`?
 
-> Answer:
+> Answer: A client-side route happens when the route is handled internally by the JavaScript that is loaded on the page.
 
 ## Project Set Up
 
