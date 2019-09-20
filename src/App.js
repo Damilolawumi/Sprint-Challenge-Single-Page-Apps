@@ -12,10 +12,10 @@ export default function App() {
     <main>
       <Header />
       <CharacterList />
-<Route/>
-<Route/>
-<Route/>
-<Route/>
+      <Route exact path='/' component={WelcomePage} />
+      <Route path='/LocationCard' component={LocationCard} />
+      <Route path='/CharacterCard' component={CharacterCard} />
+
 
 
     </main>
