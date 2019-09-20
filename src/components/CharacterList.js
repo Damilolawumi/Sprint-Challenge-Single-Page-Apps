@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
+import CharacterCard from "./CharacterCard";
+
 
 export default function CharacterList() {
 
@@ -25,11 +27,8 @@ export default function CharacterList() {
 
       {characters.map(newCharacter => {
         return (
-          <div>
-            <h2>{newCharacter.name}</h2>
-            <h3>{newCharacter.specie}</h3>
-            <h4>{newCharacter.gender}</h4>
-          </div>
+          <CharacterCard character={newCharacter}/>
+          
         )
       })}
 
