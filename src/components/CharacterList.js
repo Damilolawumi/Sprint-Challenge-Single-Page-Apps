@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import CharacterCard from "./CharacterCard";
 import styled from "styled-components";
+import SearchForm from "./SearchForm";
 
 const StyledSection = styled.section`
 display:flex;
@@ -14,7 +15,8 @@ export default function CharacterList() {
 
 
   const [characters, setCharacters] = useState([])
-
+  const [filteredCharacters, setFilteredCharacters] = useState([])
+  let [searchText, setSearchText] = useState('');
   useEffect(() => {
 
     // TODO: Add API Request here - must run in `useEffect`
@@ -28,14 +30,29 @@ export default function CharacterList() {
 
   }, []);
 
+  const onSearchChange = (e) => {
+    setSearchText(e.target.value)
+    let filteredCharacters = [];
 
+    filteredCharacters = characters.filter(character => {
+      return character.name.includes( e.target.value)
+    })
+
+    setFilteredCharacters(filteredCharacters)
+  }
+
+  let charactersToShow = characters;
+  if(searchText){
+    charactersToShow = filteredCharacters
+  }
   return (
     <StyledSection className="character-list">
+      <SearchForm onSearch={onSearchChange} searchText={searchText} />
 
-      {characters.map(newCharacter => {
+      {charactersToShow.map(newCharacter => {
         return (
-          <CharacterCard character={newCharacter}/>
-          
+          <CharacterCard character={newCharacter} />
+
         )
       })}
 

@@ -1,10 +1,23 @@
 import React, { useState } from "react";
+import { tsPropertySignature } from "@babel/types";
 
-export default function SearchForm() {
+export default function SearchForm(props) {
  
+
+
+  
   return (
     <section className="search-form">
-     // Add a search form here
+      <form>
+        <label>
+          Search
+          <input type='' name='search' 
+          value={props.searchText}
+          onChange={props.onSearch}
+          />
+        </label>
+        </form>
+     
     </section>
   );
 }
